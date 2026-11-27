@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "cutoff": 4,
+  "max_old_rank": 287,
+  "upper_rank": 291,
+  "verified_rows": 292,
+  "compared_pairs": 1152,
+  "pair_breakdown": {
+    "same_degree": 426,
+    "degree_increase": 710,
+    "constant_to_constant": 6,
+    "constant_to_linear": 10
+  },
+  "total_strict_negative_brackets": 10512,
+  "largest_denominator_bits": 29,
+  "direct_labeled_enumeration_through": 7,
+  "first_rows": [
+    [
+      1
+    ],
+    [
+      1
+    ],
+    [
+      3
+    ],
+    [
+      13
+    ],
+    [
+      74,
+      1
+    ],
+    [
+      530,
+      11
+    ],
+    [
+      4550,
+      133
+    ],
+    [
+      45570,
+      1723
+    ]
+  ],
+  "integer_rows_sha256": "dd25b44dd9ed978ab31ad1c19d2b567d2e47d83b42f54a664ae5cd3baad2959c",
+  "certificate_sha256": "343ad2743d899a44475a69588f0810ab9c5786f7249a21995e3c1894a3ed520c"
+}

@@ -1,0 +1,6 @@
+OrderedPartitions.FourPole.original_all
+OrderedPartitions.FourPole.original_five_rows
+OrderedPartitions.FourPole.six_rows_fail
+OrderedPartitions.FourPole.original_analytic
+OrderedPartitions.FourPole.effective_chord_gate
+OrderedPartitions.FourPoleFinite.original_finite

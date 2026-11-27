@@ -1,0 +1,9 @@
+import OrderedPartitions.FourPoleRationalJets
+namespace OrderedPartitions.FourPole.Box
+set_option maxHeartbeats 0
+set_option maxRecDepth 100000
+def rightWitness12 : Witness := ⟨(417959374779/500000000000),(-1/100000000000000),(401/100000000000000),(161753685006399/100000000000000),(161753685006901/100000000000000),(896592504871799/100000000000000),(896592504872301/100000000000000)⟩
+theorem rightJets12 : verifiedJet cell12 cell12.right rightWitness12 = true := by decide +kernel
+def leftWitness12 : Witness := ⟨(602809661109/500000000000),(299/100000000000000),(801/100000000000000),(525071836222599/100000000000000),(525071836223101/100000000000000),(1362270214264199/100000000000000),(1362270214264701/100000000000000)⟩
+theorem leftJets12 : verifiedJet cell12 cell12.left leftWitness12 = true := by decide +kernel
+end OrderedPartitions.FourPole.Box

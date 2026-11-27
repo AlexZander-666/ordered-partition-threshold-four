@@ -1,0 +1,459 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[letterpaper,top=.93in,bottom=.94in,left=.98in,right=.98in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage[unicode,hidelinks]{hyperref}
+\hypersetup{pdftitle={Five interlacing rows of ordered set partitions at threshold four},pdfauthor={Bowen Zuo}}
+\newtheorem{theorem}{Theorem}
+\newcommand{\e}{\varepsilon}
+\newcommand{\E}{\mathbb E}
+\newcommand{\ip}{\mathrm i}
+\title{Five interlacing rows of ordered set partitions at threshold four}
+\author{Bowen Zuo\\East China University of Science and Technology}
+\date{November 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $O_n(t)$ enumerate ordered set partitions of $[n]$ by the number of
+blocks of size at least four. For every $n\ge0$, the rows $O_n$ through
+$O_{n+4}$ have simple negative roots and satisfy strict pairwise
+interlacing, with constants interpreted by empty root lists. Five is the
+largest such window uniform in $n$. We prove the assertion for $n\ge288$
+by following the four zeros of a meromorphic denominator in a fixed
+disk. A cancellation at an actual zero of the old row gives the sign
+for shift four, even when the leading oscillation of the two rows is
+nearly in phase opposition. Independent exact integer computations
+certify the remaining $1152$ comparisons.
+\end{abstract}
+
+\section{The ordered model and the root order}
+An ordered set partition is a list of disjoint nonempty blocks with
+union $[n]$. The empty list contributes $O_0=1$. Every block of size at
+least four contributes one factor $t$. Removing the first block gives
+\begin{equation}\label{eq:recurrence}
+ O_n(t)=\sum_{a=1}^n \binom{n}{a} t^{[a\ge4]} O_{n-a}(t).
+\end{equation}
+Write $P_j(z)=\sum_{a=0}^j z^a/a!$, $A=P_3-1$ and $B=e^z-P_3$.
+Thus the exponential generating function in the number of labels is
+\begin{equation}\label{eq:egf}
+ \sum_{n\ge0}O_n(t)\frac{z^n}{n!}=\frac{1}{1-A(z)-tB(z)}.
+\end{equation}
+For $0\le k\le\lfloor n/4\rfloor$, $k$ blocks of size four and the
+remaining singletons give a positive coefficient of $t^k$.
+There are no higher coefficients. For example,
+$O_4=74+t$, $O_5=530+11t$, and $O_8=521640+24125t+70t^2$.
+
+\begin{theorem}\label{thm:main}
+For every integer $n\ge0$ and $h\in\{1,2,3,4\}$, all zeros of $O_n$
+and $O_{n+h}$ are simple and negative. Put $d=\lfloor n/4\rfloor$
+and list their respective roots as $a_i$ and $b_i$ in increasing
+order. If both rows have degree $d$, then
+\[
+ a_1<b_1<a_2<b_2<\cdots<a_d<b_d<0 .
+\]
+If $O_{n+h}$ has degree $d+1$, then
+\[
+ b_1<a_1<b_2<a_2<\cdots<b_d<a_d<b_{d+1}<0 .
+\]
+For $d=0$ these statements mean, respectively, two empty root lists
+or the single inequality $b_1<0$. No six-row window has this
+pairwise interlacing property uniformly in its starting rank.
+\end{theorem}
+
+The ordered large-block question appears in the Symmetric Functions
+Catalog \cite{catalog}. Fang's Theorem~1 \cite{fang} proves the
+eventual five-row theorem for the unordered threshold-four model,
+whose generating function is $\exp(A+tB)$. Fang centers the fourth
+shift at an actual old-row zero immediately after Eq.~(8) in
+\cite[\S5.1]{fang} and matches absolute zero counts in \cite[\S6]{fang}.
+The analogous steps below use residues and an explicit endpoint.
+Fang's coefficient order concerns the unordered rows
+\cite[\S8]{fang}. Multiplying their $t^k$ coefficients by $k!$
+orders the marked large blocks, giving $\exp(A)/(1-tB)$.
+Equation~\eqref{eq:egf} orders every block. We use
+\eqref{eq:recurrence} for the finite certificates.
+
+\section{Four poles in a fixed contour}
+For $t<0$ put $q=-t/(1-t)$, $\delta=1-q$ and $\e=(24\delta)^{1/4}$.
+Equation~\eqref{eq:egf} gives
+\begin{equation}\label{eq:G}
+ \frac{O_n(t)}{n!}=\delta[z^n]G_q(z)^{-1},\qquad
+ G_q(z)=q e^z+2\delta-P_3(z).
+\end{equation}
+At any zero $z$ of $G_q$, one has $G'_q(z)=z^3/6-2\delta$.
+On the real axis the derivative changes from negative to positive
+at the unique solution of $q=P_2(x)e^{-x}$, since the derivative
+of $P_2(x)e^{-x}$ is $-x^2 e^{-x}/2$. The minimum is $-2J(x)$,
+where
+\[
+ J(x)=P_2(x)e^{-x}-1+x^3/12,qquad
+ J'(x)=x^2(1/4-e^{-x}/2).
+\]
+There is a unique positive zero $\alpha$ of $J$, with
+$947/1000<\alpha<948/1000$ by rational Taylor bounds.
+Set $q_c=1-\alpha^3/12>116/125$ and
+$\e_c=(2\alpha^3)^{1/4}<1143/1000$. For $q_c<q<1$ the minimum is
+positive. At $q_c$ the only real zero is $\alpha$, where
+$G'_{q_c}(\alpha)=0$ and $G''_{q_c}(\alpha)=\alpha^2/2>0$.
+
+Let $U$ have density $4(1-u)^3$ on $[0,1]$ and put $H(z)=\E e^{Uz}$.
+Then
+\begin{equation}\label{eq:Gsplit}
+ G_q(z)=qz^4H(z)/24+\delta(2-P_3(z)),\qquad
+ \E U^a=24a!/(a+4)! .
+\end{equation}
+For $|\Im z|\le3$, the real part of
+$e^{-\ip\Im z/2}H(z)$ is positive. Indeed
+$|(U-1/2)\Im z|\le3/2<\pi/2$. On $|z|=3$ we also have
+$\Re H(z)>3/10$. If $x=\Re z\le0$, the bound
+$\cos v\ge1-v^2/2$ gives
+\[
+ \Re H(z)\ge\E e^{-3U}-\tfrac92\E U^2
+ =\tfrac{24}{81}(2+e^{-3})-\tfrac3{10}>\tfrac3{10}.
+\]
+For $0\le x\le3$ use $1+x/5-(9-x^2)\E[U^2e^{xU}]/2$.
+The expectations at $x=1,2,3$ are strictly below $1/8,1/5,3/10$,
+respectively, by the positive Taylor bounds in the arithmetic
+certificate. On $[0,1]$, $[1,2]$, and $[2,3]$, replacing the
+expectation by the corresponding upper bound and using
+$x\ge0,1,2$ gives the stated real part bound.
+Since $|2-P_3(z)|\le13$ on this circle, Rouch\'e's theorem counts
+four zeros with multiplicity inside it for $q_c\le q\le1$.
+It also gives
+\begin{equation}\label{eq:circle}
+ \min_{|z|=3}|G_q(z)|>
+ \tfrac{81}{24}\tfrac{3}{10}q-13(1-q)\ge \tfrac1{300}.
+\end{equation}
+The lower bound exceeds $1$ when $\e\le1/10$.
+The imaginary axis has
+$\Re G_q(\ip y)=\delta+y^2/2-q(1-\cos y)>0$ for $q<1$.
+As $q\uparrow1$ the four scaled roots tend to the fourth roots
+of $-1$, as proved below. The open right and left half-planes
+each contain two zeros counted with multiplicity for $q_c<q<1$.
+No zero crosses the imaginary axis or the contour at $q_c$.
+There the right pair is the double zero $\alpha$ and the left
+pair is nonreal and conjugate. On $(q_c,1)$ the real axis is
+zero-free and each conjugate pair is simple. Write $\zeta=\e w$
+and $\eta=\e v$ for the upper right and upper left zeros. They
+are continuous and locally analytic.
+
+\subsection{Geometry of the scaled roots}\label{sec:boxes}
+In scaled coordinates the equation is
+\[
+ F_{\e}(w)=2-e^{\e w}+w^4H(\e w)=0.
+\]
+For $\omega^4=-1$ one root lies in
+$|w-(\omega-3\omega^2\e/10)|<r\e^2$
+for $(H_0,r)=(1/32,1/2)$ or $(1/10,3/5)$ and $0<\e\le H_0$.
+On the boundary set $u=3/10+rH_0$ and $W=1+uH_0$.
+In $F_{\e}=1+w^4+\e(w^5/5-w)+O(\e^2)$ the constant and
+first-order terms at the shifted center cancel. Compare with
+$4\omega^3(w-\omega+3\omega^2\e/10)$. The quartic
+linearization remainder, change in the first-order term, and
+exponential remainder, divided by $\e^2$, are bounded by
+\begin{equation}\label{eq:disk-small}
+ (6+4uH_0+(uH_0)^2)u^2+u(W^4+1)
+    +\frac{W^2+W^6/15}{2(1-H_0W)}<4r.
+\end{equation}
+Here the expectation identities in \eqref{eq:Gsplit} and
+$e^x\le(1-x)^{-1}$ for $0\le x<1$ bound the exponential
+remainders. The disks are disjoint and map inside $|z|<3$.
+The squared moduli of the upper right and left centers are
+$1\mp 3\sqrt2\e/10+9\e^2/100$, respectively.
+For the upper right center the real part exceeds the imaginary
+part by $3\e/10$. The bounds $r\e^2$ on displacement preserve
+these strict modulus and angular inequalities.
+
+For $1/32\le\e\le1143/1000$, the data file
+\texttt{dominance.json} covers the entire closed range by 17
+closed rational bins sharing endpoints. Each bin gives an upper left disk
+outside $|w|=1$ and a right disk inside $|w|=1$ with
+$\Re w>\Im w$. The right disk is in the upper half-plane except
+for the last bin, where it is centered on the real axis and
+contains two zeros with multiplicity. On the oscillatory side
+these are exactly the two right conjugates. All disks map
+inside $|z|<3$.
+
+For clarity, the disk tests have the following exact meaning.
+For a rational center $c_0$ and radius $r_0$, at the parameter
+midpoint $e_0$ compare $F_\e$ on the circle with
+$F_{e_0}^{(\ell)}(c_0)(w-c_0)^\ell/\ell!$, where $\ell=1$
+for a single zero and $\ell=2$ for the last right disk.
+The jet through order two is summed through degree 28 in
+Gaussian rational arithmetic. For monomial index $a>0$ the
+coefficient is
+\[
+ \frac{-e_0^a+\mathbf1_{a\ge4}\,24e_0^{a-4}}{a!};
+\]
+the term with $e_0^{a-4}$ is used only for $a\ge4$.
+The jet tail is bounded by twice its first absolute majorant
+at $|w|\le2$, since consecutive ratios are below $1/10$.
+On $|w|\le W$ a parameter derivative bound is
+$W e^{\e W}(1+W^4/5)$. The next $w$-derivative
+bound follows from Leibniz's rule on $w^4H(\e w)$.
+Expectations of $U^b e^{\e W U}$ are bounded by positive
+Taylor sums through degree 20 with a geometric tail.
+The verifier compares a lower norm bound for the leading jet
+with the sum of the other jet, disk remainder and parameter
+variation bounds. This proves the strict Rouch\'e inequality
+on the whole cell. Together these tests give
+\begin{equation}\label{eq:geometry}
+ R:=|\zeta|<\e<|\eta|,\qquad
+ 0<\theta:=\arg\zeta<\pi/4 ,\qquad q_c<q<1.
+\end{equation}
+
+\section{Signs at actual old-row zeros}
+Let $\phi=\arg\eta$, $\beta=\arg G'_q(\zeta)$,
+$\gamma=\arg G'_q(\eta)$, $\lambda=R/|\eta|$ and
+$A_0=|G'_q(\zeta)|/|G'_q(\eta)|$.
+Use the principal $\beta\in(0,\pi)$, continuous because
+$\Im G'_q(\zeta)=R^3\sin(3\theta)/6>0$.
+For $\psi=(n+1)\theta+\beta$ and $\chi=(n+1)\phi+\gamma$,
+the residue theorem gives
+\begin{align}
+ S_n&:=\tfrac12 |G'_q(\zeta)|R^{n+1}[z^n]G_q(z)^{-1}
+ =-\cos\psi-A_0\lambda^{n+1}\cos\chi+E_n,\label{eq:residue}\\
+ |E_n|&\le \frac{3}{2\min_{|z|=3}|G_q(z)|}
+        |G'_q(\zeta)|(R/3)^{n+1}.\label{eq:E}
+\end{align}
+The normalization preserves the sign of $O_n(t)$. At an old
+zero, put $c=T+E$ with
+$T\ge A_0\lambda^{n+1}$ and $E\ge\max(|E_n|,|E_{n+h}|)$.
+Thus $|\cos\psi|\le c$. It is enough to prove
+\begin{equation}\label{eq:tests}
+ c<2/5,\quad c^2+L_h^2<1,\quad
+ |S_{n+h}-\sin\psi\sin(h\theta)|\le L_h\sin(h\theta),\quad
+ L_h\ge0 .
+\end{equation}
+Indeed $\sin(h\theta)>0$ and $|\sin\psi|>L_h$.
+For $h=1,2,3$ the absolute error in \eqref{eq:tests} is at most
+$2T+2E$ using \eqref{eq:residue} at the old root.
+For $h=4$ add the identity $S_n=0$ to \eqref{eq:residue} at
+$n+4$. As $\cos(\chi+3\pi)=-\cos\chi$, using the same
+$\chi$ at both rows gives the sharper bound
+\begin{equation}\label{eq:cancel}
+ c|1+\cos4\theta|+
+ T(1-\lambda^4+|4\phi-3\pi|)+2E.
+\end{equation}
+This is the residue version of the centered shift-four comparison
+discussed above. Bounding these two secondary terms individually
+would lose the small angular factor.
+
+\subsection{The range \texorpdfstring{$0<\e\le1/10$}{0 < epsilon <= 1/10}}
+Fix $n\ge288$ and $n\e\ge3$. For each upper scaled pole
+write its ratio to $\omega$ as $1+d_0$. The disks give
+$|d_0+3\omega\e/10|\le r\e^2$, $|d_0|\le u\e$.
+In a cell $[l,H_1]$, put $u=3/10+rH_1$ and
+$B_1=r+u^2/(2(1-uH_1))$. The principal logarithm differs
+from $-3\omega\e/10$ by at most $B_1\e^2$.
+With $L=.2121320-B_1H_1$ and $U_1=.2121321+B_1H_1$,
+these logarithmic estimates imply
+\[
+ 4L\e\le\pi-4\theta\le4U_1\e,\quad
+ |4\phi-3\pi|\le4U_1\e,\quad
+ 2L\e\le-\log\lambda\le2U_1\e .
+\]
+The two decimal constants enclose $3/(10\sqrt2)$. The sine
+bounds are $\sin(4\theta)\ge\e S$, where
+$S=4L-(4U_1)^3H_1^2/6$, and
+$\sin(h\theta)\ge .7-3U_1H_1$ for $1\le h\le3$.
+The latter uses the Lipschitz bound on sine and
+$\sin(h\pi/4)\ge\sqrt2/2>.7$.
+
+At a pole $G'_q(\e w)=\e^3(w^3-\e/2)/6$.
+Put $M=(1+uH_1)^3+H_1/2$ and $m=(1-uH_1)^3-H_1/2$.
+Since $n\e\ge\max(3,288l)$, we may use
+\[
+ T=\frac{M}{m}
+    \left(\sum_{a=0}^{20}\frac{(2L\max(3,288l))^a}{a!}\right)^{-1}.
+\]
+The contour bound for this range allows
+$|E_n|, |E_{n+h}|\le P\e$ with $P=MH_1^2/4$,
+so choose $E=PH_1$. For the short shifts use
+$L_h=(2T+2E)/(.7-3U_1H_1)$. For the fourth shift,
+$1-\lambda^4\le -4\log\lambda$ and
+$1+\cos4\theta\le (4U_1\e)^2/2$ give
+\begin{equation}\label{eq:small-four}
+ L_4=\frac{12U_1T+c(4U_1)^2H_1/2+2P}{S}.
+\end{equation}
+The exact verifier checks positive denominators and both strict
+tests in \eqref{eq:tests} on 256 equal cells closed at both
+ends. Their boundary at $1/32$ permits using the sharper disk
+radius on the first 80 cells.
+
+\subsection{The compact range and the critical cell}
+Use the 16 bins from Section~\ref{sec:boxes} that meet
+$[1/10,\e_c]$; the remaining bin is contained in the small
+range. In a bin $[l,H_1]$ let $(x,y),(X,Y)$ be the centers
+and $r,s$ the radii of the right and left disks, respectively.
+Let $R_l,R_u,L_l,L_u$ enclose the two scaled moduli by
+outward rational square-root rounding. Then take
+\begin{align*}
+ \Lambda&=R_u/L_l<1, &\lambda_0&=R_l/L_u>0,\\
+ d_-&=l^3(L_l^3-H_1/2)/6, &d_+&=H_1^3(R_u^3+H_1/2)/6,\\
+ T&=\frac{R_u^3+H_1/2}{L_l^3-H_1/2}\Lambda^{288},&
+ E&=450d_+(H_1R_u/3)^{288}.
+\end{align*}
+In the ratio for $T$ the factor $\e^3/6$ cancels at the same
+parameter. The quantities $d_-,d_+$ bound the left and right
+physical residue derivatives from below and above.
+Equation~\eqref{eq:circle} gives the factor 450.
+
+For a simple upper right disk write $x_l=x-r$, $y_l=y-r$.
+The short-shift sine bound is $y_l/R_u$. Also
+\begin{align*}
+ \sin4\theta&\ge
+ 4x_ly_l(x-y-2r)(x+y-2r)/R_u^4,\\
+ \frac{1+\cos4\theta}{\sin4\theta}
+ &\le\frac{(x-y+2r)(x+y+2r)}{2x_ly_l},\\
+ |4\phi-3\pi|&\le 4(|X+Y|+2s)/(Y-X-2s).
+\end{align*}
+The first two use the Cartesian sine and cosine identities,
+and the third uses the arctangent of the deviation from
+the upper left diagonal. These inequalities and
+$1-\lambda^4\le1-\lambda_0^4$ give the short and fourth
+relative errors in \eqref{eq:tests}.
+
+In the final right disk write $\zeta=x_0+\ip y_0$ with
+$0<x_0,y_0<6/5$ at an oscillatory parameter.
+The imaginary part of $G_q(\zeta)=0$ yields
+\begin{equation}\label{eq:critical}
+ \Re G'_q(\zeta)
+ =(y_0\cot y_0-1)(1+x_0+x_0^2/2-y_0^2/6)+y_0^2/3 .
+\end{equation}
+The factor in parentheses after $y_0\cot y_0-1$ lies
+between 0 and 3. Use
+$\sin y_0-y_0\cos y_0=\int_0^{y_0} t\sin t\,dt\le y_0^3/3$
+and $\sin y_0\ge3y_0/4$ to obtain
+$|\Re G'_q(\zeta)|\le5y_0^2/3$.
+The imaginary part is $y_0(3x_0^2-y_0^2)/6$ and has
+absolute value at most $y_0$. In particular
+$|G'_q(\zeta)|\le5y_0$. For $1\le h\le3$,
+$\sin(h\theta)\ge\sin\theta$ gives
+$|G'_q(\zeta)|/\sin(h\theta)\le 5H_1R_u$.
+For $h=4$ use
+$\sin4\theta=4\sin\theta\cos\theta\cos2\theta$,
+$\cos\theta>1/2$ and $\cos2\theta\ge(x_0-y_0)/R$.
+The ratio is then at most $5(H_1R_u)^2/(2l(x-y-2r))$.
+If $D_1$ is the larger of these bounds, take
+\[
+ L_h=2D_1\left(\Lambda^{288}/d_-+
+                 450(H_1R_u/3)^{288}\right)
+ \qquad(1\le h\le4).
+\]
+This follows by bounding the two secondary and contour
+terms directly, retaining the factor $|G'_q(\zeta)|$.
+The inequality is uniform up to the critical parameter
+from the open side. The verifier checks \eqref{eq:tests}
+with exact rational arithmetic. Across all the small cells
+and compact bins, the largest squared-test values display
+as $0.987357440$ and $0.064608115$, respectively.
+
+\section{Counting to the degree}
+The right poles tend to $\alpha$ as $q\downarrow q_c$.
+Equation~\eqref{eq:critical} and the imaginary derivative
+formula give $\Re G'_q(\zeta)=O(y_0^2)$ and
+$\Im G'_q(\zeta)/y_0\to\alpha^2/2>0$.
+Consequently $\psi\to\pi/2$.
+Stop at $q_*=1-(3/n)^4/24$, so $\e=3/n\le1/96$ and
+$n\e\ge3$ on the intervening interval.
+For $\omega=e^{\ip\pi/4}$, the derivative ratio at the endpoint is
+\[
+ \frac{G'_q(\e w)}{\e^3\omega^3/6}
+ =(1+d_0)^3-\e/(2\omega^3).
+\]
+With $H_*=3/288$, $r=1/2$, $u=3/10+rH_*$ and
+$D_*=(3+3uH_*+u^2H_*^2)u+1/2$, this ratio is within
+$D_*\e$ of 1. Hence
+$|\beta-3\pi/4|\le D_*\e/(1-D_*H_*)$.
+Let $B_*$ be the log remainder constant above at $H_*$ and
+$b_*=.2121321$. The endpoint phase loss from
+$(n/4+1)\pi$ is at most
+\[
+ 3b_*+H_*\left(b_*+(3+H_*)B_*+D_* /(1-D_*H_*)\right)
+ <.671<\pi/4 .
+\]
+The displayed rational expression is strictly below $671/1000$;
+$n/4$ in this phase estimate is real division.
+
+By continuity, the phase crosses in order the $d=\lfloor n/4\rfloor$
+strips $[i\pi+\pi/4,(i+1)\pi-\pi/4]$ for $i=1,\dots,d$.
+For each strip take its first upper endpoint after the preceding
+strip and the last lower endpoint before that upper endpoint.
+This gives disjoint parameter intervals in which the phase stays
+within the corresponding strips. At opposite endpoints
+$-\cos\psi$ has opposite signs and magnitude $\cos(\pi/4)>2/5$.
+The bound $|S_n+\cos\psi|\le c<2/5$ from the same estimates
+holds at both endpoints. Thus there is a zero in each interval.
+The known degree makes these $d$ roots simple and exhaustive.
+
+At the $i$th such zero in increasing $q$, the shifted row has
+sign $(-1)^i$ by \eqref{eq:tests}. At $q=0$ it is positive.
+There is one shifted zero before the first old zero and one
+between each pair of consecutive old zeros. When the degree
+rises, positivity of the leading coefficient gives the sign
+$(-1)^{d+1}$ near $q=1$, producing the additional last root.
+Again degree counts show simplicity and exhaustiveness.
+As $t=-q/(1-q)$ decreases with $q$, the two root orders become
+exactly those in Theorem~\ref{thm:main}. This proves its assertion
+for all old ranks $n\ge288$.
+
+\section{Finite certificates and maximality}
+For $0\le n<288$, there are $1152$ comparisons, with upper rank
+at most 291. The ancillary finite generator implements
+\eqref{eq:recurrence} over the integers and locates candidate
+rational root brackets. The independent verifier computes the
+coefficient of $t^k$ in the original row using
+\[
+ [t^k]O_n(t)=n![z^n]B(z)^k(1-A(z))^{-k-1}.
+\]
+This expression follows by recording the $k$ ordered large
+blocks and the $k+1$ lists of small blocks between and around them.
+A direct enumeration by first-block subsets checks the
+initial rows through rank 7 independently. The verifier checks
+strictly negative endpoints, disjointness of each row's
+brackets, and opposite signs by integer Horner evaluation with
+positive cleared denominators. The bracket count equals the
+degree, so each interval has one simple root, and the intervals
+account for every root. Compare their endpoints across each
+pair to obtain the specified strict order.
+There are $10512$ isolating intervals, 426 equal-positive-degree
+comparisons, 710 comparisons with positive old degree increased
+by one, 6 with two constants and 10 from a constant to a linear
+row. These facts and the analytic tail prove all-sizes
+interlacing. Every five consecutive rows form such a window.
+For $n=4m+3$ the degrees of $O_n$ and $O_{n+5}$ differ by two,
+which rules out a uniform six-row window.
+
+\paragraph{Reproducibility.}
+The ancillary directories contain the rational pole tests and
+the independent integer verifier for the finite range.
+The companion Lean~4 project proves Theorem~\ref{thm:main} for
+the original rows. In the namespace
+\texttt{OrderedPartitions.FourPole}, the declaration
+\texttt{original\_all} covers all old ranks and shifts one through
+four, \texttt{original\_five\_rows} covers all pairs in five
+consecutive rows, and \texttt{six\_rows\_fail} proves sharpness.
+The file \texttt{FourPoleAllSizes.lean} joins the two proofs at
+old rank 288. The reproducibility materials identify the fixed Lean
+and Mathlib versions and the complete source archive.
+
+\paragraph{Acknowledgment.}
+ChatGPT assisted with the analytic arguments, independent
+mathematical review, exact certificate implementation, Lean
+formalization, and manuscript preparation.
+
+\begin{thebibliography}{9}
+\bibitem{fang}
+C. Fang, \emph{Eventual interlacing of large-block set-partition
+polynomials}, 26 November 2026,
+\href{https://hexagonmath.org/2611.01129v1}{hexagon:2611.01129v1}.
+\bibitem{catalog}
+P. Alexandersson, \emph{Real-rooted and stable polynomials},
+The Symmetric Functions Catalog, set partitions and trees,
+\href{https://www.symmetricfunctions.com/realRootedOpenProblems.htm\#set-partitions-and-trees}{catalog entry}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite this work if you use the proof or certificate software."
+type: software
+title: "Five interlacing rows of ordered set partitions at threshold four"
+version: "1.0.0"
+authors:
+  - family-names: Zuo
+    given-names: Bowen
+    affiliation: East China University of Science and Technology
+repository-code: "https://github.com/AlexZander-666/ordered-partition-threshold-four"
+license: Apache-2.0
+keywords:
+  - ordered set partitions
+  - real-rootedness
+  - interlacing
+  - Lean 4
